@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.devprep.backend.dto.AuthResponse;
+import com.devprep.backend.dto.LoginRequest;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -18,5 +20,10 @@ public class AuthController {
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
             String response = userService.register(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        String token = userService.login(request);
+        return ResponseEntity.ok(new AuthResponse(token));
     }
 }
