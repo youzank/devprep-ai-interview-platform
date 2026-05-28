@@ -104,6 +104,11 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.openai</groupId>
+            <artifactId>openai-java</artifactId>
+            <version>4.37.0</version>
+        </dependency>
     </dependencies>
 
     <build>

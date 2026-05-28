@@ -17,7 +17,7 @@ public class TestService {
     private final QuestionRepository questionRepository;
     private final TestSessionRepository testSessionRepository;
     private final UserAnswerRepository userAnswerRepository;
-    private final FakeAiQuestionService fakeAiQuestionService;
+    private final OpenAiQuestionService openAiQuestionService;
 
     public StartTestResponse startTest(StartTestRequest request, String userEmail) {
 
@@ -33,7 +33,7 @@ public class TestService {
 
         TestSession savedSession = testSessionRepository.save(testSession);
 
-        List<Question> generatedQuestions = fakeAiQuestionService.generateQuestions(
+        List<Question> generatedQuestions = openAiQuestionService.generateQuestions(
                 request.getCategory(),
                 request.getDifficulty(),
                 request.getQuestionCount()

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class FakeAiQuestionService {
+public class OpenAiQuestionService {
 
     public List<Question> generateQuestions(
             QuestionCategory category,
