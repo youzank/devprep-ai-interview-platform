@@ -1,3 +1,4 @@
+
 package com.devprep.backend.entity;
 
 import jakarta.persistence.*;
@@ -16,7 +17,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String questionText;
 
     @Enumerated(EnumType.STRING)
@@ -31,10 +32,22 @@ public class Question {
     @Column(nullable = false)
     private Difficulty difficulty;
 
+    @Column(columnDefinition = "TEXT")
     private String optionA;
+
+    @Column(columnDefinition = "TEXT")
     private String optionB;
+
+    @Column(columnDefinition = "TEXT")
     private String optionC;
+
+    @Column(columnDefinition = "TEXT")
     private String optionD;
 
     private String correctAnswer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_session_id")
+    private TestSession testSession;
+
 }

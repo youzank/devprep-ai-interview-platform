@@ -33,4 +33,16 @@ public class TestController {
                 authentication.getName()
         );
     }
+
+    @PostMapping("/{testSessionId}/finish")
+    public FinishTestResponse finishTest(
+            @PathVariable Long testSessionId,
+            Authentication authentication
+    ) {
+        return testService.finishTest(
+                testSessionId,
+                authentication.getName()
+        );
+    }
+
 }
